@@ -1,0 +1,5 @@
+tcLen = list(input().split())
+arrLen = int(tcLen[1])
+print(arrLen)
+print(int(tcLen[1]))
+print()
