@@ -3,25 +3,25 @@ def forth(array):
     A = ['+', '*', '/', '-']
     for c in array:
         answer = []
-        if c.isnumeric():
+        if c.isdigit():
             stack.append(c)
-        elif c in A and len(stack) != 2:
+        elif c in A and len(stack) < 2:
             return 'error'
         elif c == '+':
             for _ in range(2):
-                answer += stack.pop()
+                answer.append(stack.pop())
             stack.append(int(answer[0]) + int(answer[1]))
         elif c == '*':
             for _ in range(2):
-                answer += stack.pop()
+                answer.append(stack.pop())
             stack.append(int(answer[0]) * int(answer[1]))
         elif c == '-':
             for _ in range(2):
-                answer += stack.pop()
+                answer.append(stack.pop())
             stack.append(int(answer[0]) - int(answer[1]))
         elif c == '/':
             for _ in range(2):
-                answer += stack.pop()
+                answer.append(stack.pop())
             stack.append(int(answer[0]) // int(answer[1]))
         elif c == '.':
             if not stack:
@@ -30,7 +30,8 @@ def forth(array):
                 return stack[-1]
 
     return stack
+T = int(input())
+for tc in range(1,T+1):
+    array = input().split()
 
-array = input().split()
-
-print(forth(array))
+    print(f'#{tc} {forth(array)}')
