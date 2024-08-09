@@ -4,9 +4,6 @@ def start(N):
             if array[i][j] == 2:
                 return i,j
 
-
-
-
 def maze(array,N):
     sr,sc =start(N)
     stack = []
@@ -22,9 +19,11 @@ def maze(array,N):
                 stack.append([nr,nc])
                 sr,sc = nr,nc
         else:
-            sr,sc = stack.pop()
+            stack.pop()
+    sr,sc = stack[0][0],stack[0][1]
 
-    return stack
+
+    return sr,sc
 
 
 
@@ -33,5 +32,4 @@ for tc in range(1,T+1):
     N = int(input())
     array = [list(map(int, input())) for _ in range(N)]
     visited = [[0]*N for _ in range(N)]
-
     print(maze(array,N))
