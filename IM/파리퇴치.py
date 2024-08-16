@@ -15,3 +15,5 @@ for tc in range(1,T+1):
     array = [list(map(int, input().split())) for _ in range(N)]
     answer = bug(array,N,M)
     print(answer)
+
+    # 마지막 push
