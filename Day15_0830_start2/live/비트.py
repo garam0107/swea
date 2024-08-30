@@ -25,9 +25,10 @@
 # i & (1 << N) - > N번째 비트가 0인지 아닌지 알 수 있다.
 arr = [1,2,3,4]
 # i의 의미는 i번째 부분집합
-for i in range(1 << len(arr)):
+for i in range(1 << len(arr)): #2 ** len(arr)
     for idx in range(len(arr)):
-        # i & (1 << idx)
+        if i & (1 << idx):
         # - i번째 부분집합에 idx요소가 포함되어 있는지 아닌지지        if i & (1 << idx):
             print(arr[idx], end = ' ')
+
 
