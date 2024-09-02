@@ -4,7 +4,7 @@ def per(x):
         print(final)
         return
     # 후보군 반복
-    for i in range(1,7):
+    for i in range(1,4):
 
         # 아래 코드의 단점: "in" - 시간 복잡도 O(N)- final 배열의 길이 만큼 탐색하기 때문에 시간복잡도가 높다
         # if i in final: # 시간 초과 위험도가 높음
