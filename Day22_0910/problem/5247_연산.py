@@ -1,32 +1,37 @@
-def bfs(level,N):
-    if level == 4:
-        return
-    if N == num_2:
-        print(N)
-        return N
-
+def bfs(num,cnt):
+    if num == M:
+        return cnt
+    cnt += 1
     for i in range(4):
         if visit[i]: continue
         visit[i] = 1
         if i == 0:
-            N += 1
-        elif i == 1:
-            N -= 1
-        elif i == 2:
-            N *= 2
-        else:
-            N -= 10
-        visit[i] = 0
-        bfs(level + 1, N)
+            if 0 < num+1 <= 10 ** 6:
+                num += 1
+                bfs(num,cnt)
+                visit[i] = 0
 
+        if i == 1:
+            if 0 < num - 1 <= 10 ** 6:
+                num -= 1
+                bfs(num,cnt)
+                visit[i] = 0
 
+        if i == 2:
+            if 0 < num * 2 <= 10 ** 6:
+                num *= 2
+                bfs(num,cnt)
+                visit[i] = 0
 
+        if i == 3:
+            if 0 < num - 10 <= 10 ** 6:
+                num -= 1
+                bfs(num,cnt)
+                visit[i] = 0
 
 
 T = int(input())
 for tc in range(1,T+1):
-    num_1,num_2 = map(int, input().split())
-    visit = [0] * 4
-    answer = bfs(0,num_1)
+    N,M = map(int, input().split())
+    answer = bfs(N,0)
     print(answer)
-
