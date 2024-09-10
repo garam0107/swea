@@ -1,31 +1,23 @@
 def bfs(level,N):
+    if level == 4:
+        return
     if N == num_2:
         print(N)
         return N
 
     for i in range(4):
         if visit[i]: continue
-
+        visit[i] = 1
         if i == 0:
-            visit[i] = 1
             N += 1
-            bfs(level+1,N)
-            visit[i] = 0
         elif i == 1:
-            visit[i] = 1
             N -= 1
-            bfs(level+1,N)
-            visit[i] = 0
         elif i == 2:
-            visit[i] = 1
             N *= 2
-            bfs(level+1,N)
-            visit[i] = 0
         else:
-            visit[i] = 1
             N -= 10
-            bfs(level + 1, N)
-            visit[i] = 0
+        visit[i] = 0
+        bfs(level + 1, N)
 
 
 
